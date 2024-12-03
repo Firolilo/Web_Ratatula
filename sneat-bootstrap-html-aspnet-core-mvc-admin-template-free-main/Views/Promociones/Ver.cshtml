@@ -1,0 +1,52 @@
+@model IEnumerable<AspnetCoreMvcFull.Models.ViewModels.Promocion>
+
+@{
+  ViewData["Title"] = "Ver Promociones";
+}
+
+<h1>Promociones</h1>
+
+<a asp-action="Create" class="btn btn-primary">Crear Nueva Promoción</a>
+
+<table class="table table-striped mt-3">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripción</th>
+    <th>Precio Real</th>
+    <th>Precio Promocional</th>
+    <th>Productos</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  @foreach (var promocion in Model)
+  {
+    <tr>
+      <td>@promocion.Nombre</td>
+      <td>@promocion.Descripcion</td>
+      <td>@promocion.PrecioReal.ToString("C")</td>
+      <td>@promocion.PrecioPromo.ToString("C")</td>
+      <td>
+        @foreach (var producto in promocion.Productos)
+        {
+          <div>@producto.IdProducto - Cantidad: @producto.Cantidad</div>
+        }
+      </td>
+      <td>
+        <form asp-action="Eliminar" method="post" onsubmit="return confirm('¿Estás seguro de eliminar esta promoción?');">
+          <input type="hidden" name="id" value="@promocion.Id" />
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+  }
+  </tbody>
+</table>
+
+@if (ViewBag.Mensaje != null)
+{
+  <div class="alert alert-info mt-3">
+    @ViewBag.Mensaje
+  </div>
+}

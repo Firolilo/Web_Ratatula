@@ -1,0 +1,52 @@
+@{
+  Layout = "_BlankLayout";
+  ViewData["Title"] = "Login - Ratatula";
+}
+
+@section PageStyles {
+  <link rel="stylesheet" href="~/vendor/css/pages/page-auth.css">
+}
+
+@* ************** Content ************** *@
+
+<div class="container-xxl">
+  <div class="authentication-wrapper authentication-basic container-p-y">
+    <div class="authentication-inner">
+      <!-- Login -->
+      <div class="card px-sm-6 px-0">
+        <div class="card-body">
+          <!-- Logo -->
+          <div class="app-brand justify-content-center">
+            <a href="/" class="app-brand-link gap-2">
+                            <span class="app-brand-logo demo">
+                                <img src="/rataim/Ratatula.png" alt="Logo Ratatula" class="img-fluid" style="max-width: 150px;">
+                            </span>
+              <span class="app-brand-text demo text-heading fw-bold">Ratatula</span>
+            </a>
+          </div>
+          <!-- /Logo -->
+          <h4 class="mb-1">Welcome to Ratatula! 👋</h4>
+          <p class="mb-6">Por Favor Local, Ingresa tus credenciales...</p>
+
+          <!-- Formulario para el login -->
+          <form id="formAuthentication" class="mb-6" action="/auth/login" method="POST">
+            <div class="mb-6">
+              <label for="Correo" class="form-label">Email or Username</label>
+              <input type="text" class="form-control" id="Correo" name="Correo" placeholder="Enter your email or username" autofocus required>
+            </div>
+            <div class="mb-6 form-password-toggle">
+              <label class="form-label" for="Password">Password</label>
+              <div class="input-group input-group-merge">
+                <input type="password" id="Password" class="form-control" name="Password" placeholder="Enter your password" required>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <button type="submit" class="btn btn-primary w-100">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

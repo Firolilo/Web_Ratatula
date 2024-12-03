@@ -1,0 +1,111 @@
+@{
+  TempData.Keep();
+  string? currentPage = ViewContext.HttpContext.Request.Path;
+}
+
+<!-- Menu -->
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+
+  <!-- App Brand -->
+  <div class="app-brand demo @((@ViewData["navbarFull"] != null && Convert.ToBoolean(@ViewData["navbarFull"])) ? "d-xl-none" : "")">
+    <a asp-controller="Dashboards" asp-action="Index" class="app-brand-link">
+    <span class="app-brand-logo demo">
+      <img src="rataim/Ratatula.png" alt="Logo" class="img-fluid" style="width: 50px; height: 50px;" />
+    </span>
+      <span class="app-brand-text demo menu-text fw-bold ms-2">
+      Ratatula <br/>
+      <span style="font-size: 0.7em;">@UserSingleton.Instance.Nombre</span>
+    </span>
+    </a>
+
+    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+      <i class="bx bx-chevron-left bx-sm d-flex align-items-center justify-content-center"></i>
+    </a>
+  </div>
+
+
+  <div class="menu-inner-shadow"></div>
+
+  <!-- Menu Items -->
+  <ul class="menu-inner py-1">
+    <!-- Productos -->
+    <li class='menu-item@(currentPage.StartsWith("/Productos") ? " active open" : "")'>
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-cube"></i>
+        <div>Productos</div>
+      </a>
+      <ul class="menu-sub">
+        <li class='menu-item@(currentPage == "/Productos/Create" ? " active" : "")'>
+          <a asp-controller="Producto" asp-action="Create" class="menu-link">
+            <div>Crear Producto</div>
+          </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Productos/Index" ? " active" : "")'>
+          <a asp-controller="Producto" asp-action="Index" class="menu-link"> <!-- Cambié "Create" a "Index" aquí -->
+            <div>Listar Productos</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Promociones -->
+    <li class="menu-item@(currentPage.StartsWith("/Promociones") ? " active" : "")">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-tag"></i>
+        <div>Promociones</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item@(currentPage.StartsWith("/Promociones/Ver") ? " active" : "")">
+          <a href="@Url.Action("Ver", "Promociones")" class="menu-link">
+            <div>Ver Promociones</div>
+          </a>
+        </li>
+        <li class="menu-item@(currentPage.StartsWith("/Promociones/Create") ? " active" : "")">
+          <a href="@Url.Action("Create", "Promociones")" class="menu-link">
+            <div>Crear Promoción</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Pedidos -->
+    <li class="menu-item@(currentPage.StartsWith("/Pedidos") ? " active" : "")">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-cart"></i>
+        <div>Pedidos</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item@(currentPage.StartsWith("/Pedidos/Completados") ? " active" : "")">
+          <a href="@Url.Action("Completados", "Pedidos")" class="menu-link">
+            <div>Ver Pedidos Completados</div>
+          </a>
+        </li>
+        <li class="menu-item@(currentPage.StartsWith("/Pedidos/Pendientes") ? " active" : "")">
+          <a href="@Url.Action("Pendientes", "Pedidos")" class="menu-link">
+            <div>Ver Pedidos Pendientes</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Reportes -->
+    @* <li class="menu-item@(currentPage.StartsWith("/Reportes") ? " active" : "")"> *@
+    @*   <a href="javascript:void(0);" class="menu-link menu-toggle"> *@
+    @*     <i class="menu-icon tf-icons bx bx-file"></i> *@
+    @*     <div>Reportes</div> *@
+    @*   </a> *@
+    @*   <ul class="menu-sub"> *@
+    @*     <li class="menu-item@(currentPage.StartsWith("/Reportes/Ver") ? " active" : "")"> *@
+    @*       <a href="@Url.Action("Ver", "Reportes")" class="menu-link"> *@
+    @*         <div>Ver Reportes</div> *@
+    @*       </a> *@
+    @*     </li> *@
+    @*     <li class="menu-item@(currentPage.StartsWith("/Reportes/Create") ? " active" : "")"> *@
+    @*       <a href="@Url.Action("Create", "Reportes")" class="menu-link"> *@
+    @*         <div>Crear Reporte</div> *@
+    @*       </a> *@
+    @*     </li> *@
+    @*   </ul> *@
+    @* </li> *@
+  </ul>
+</aside>

@@ -1,0 +1,22 @@
+@{
+  TempData.Keep();
+  ViewData["containerNav"] = (ViewData["containerNav"] ??= "container-fluid");
+}
+
+<footer class="content-footer footer bg-footer-theme">
+  <div class="@ViewData["containerNav"]">
+    <div class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+      <div class="text-body">
+        © <script>
+        document.write(new Date().getFullYear())
+        </script>, Ratatula hasta la muerte
+      </div>
+      <div class="d-none d-lg-inline-block">
+        <a href="https://github.com/FrancoJTA" class="footer-link me-4" target="_blank">FrancoJTA</a>
+        <a href="https://github.com/Firolilo" target="_blank" class="footer-link me-4">Firolilo</a>
+        <a href="https://github.com/DriaMT321" target="_blank" class="footer-link me-4">DriaMT321</a>
+        <a href="https://github.com/isavethh" target="_blank" class="footer-link me-4">isavethh</a>
+      </div>
+    </div>
+  </div>
+</footer>

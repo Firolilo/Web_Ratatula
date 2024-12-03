@@ -1,0 +1,75 @@
+@{
+  ViewData["Title"] = "Dashboard - Analytics";
+}
+
+@section VendorStyles {
+  <link rel="stylesheet" href="~/vendor/libs/apex-charts/apex-charts.css" />
+}
+
+@section VendorScripts {
+  <script src="~/vendor/libs/apex-charts/apexcharts.js"></script>
+}
+
+@section PageScripts {
+  <script src="~/js/dashboards-analytics.js"></script>
+}
+
+@* ************** Content ************** *@
+<div class="row justify-content-center">
+  <!-- Card for Productos -->
+  <div class="col-md-4 mb-4">
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <div class="mb-3">
+          <h5 class="card-title text-primary">Productos</h5>
+          <p class="card-text">Administra todos tus productos de manera fácil y rápida.</p>
+        </div>
+        <a href="@Url.Action("Index", "Producto")" class="btn btn-lg btn-outline-primary w-100">Ver Productos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card for Promociones -->
+  <div class="col-md-4 mb-4">
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <div class="mb-3">
+          <h5 class="card-title text-warning">Promociones</h5>
+          <p class="card-text">Gestiona tus promociones y descuentos especiales.</p>
+        </div>
+        <a href="@Url.Action("Ver", "Promociones")" class="btn btn-lg btn-outline-warning w-100 mb-2">Ver Promociones</a>
+        <a href="@Url.Action("Create", "Promociones")" class="btn btn-lg btn-warning w-100">Crear Promoción</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card for Pedidos -->
+  <div class="col-md-4 mb-4">
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <div class="mb-3">
+          <h5 class="card-title text-success">Pedidos</h5>
+          <p class="card-text">Consulta y gestiona los pedidos de tus clientes.</p>
+        </div>
+        <a href="@Url.Action("Completados", "Pedidos")" class="btn btn-lg btn-outline-success w-100 mb-2">Ver Pedidos Completados</a>
+        <a href="@Url.Action("Pendientes", "Pedidos")" class="btn btn-lg btn-success w-100">Ver Pedidos Pendientes</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Card for Reportes -->
+@* <div class="row justify-content-center"> *@
+@*   <div class="col-md-4 mb-4"> *@
+@*     <div class="card shadow-lg"> *@
+@*       <div class="card-body"> *@
+@*         <div class="mb-3"> *@
+@*           <h5 class="card-title text-info">Reportes</h5> *@
+@*           <p class="card-text">Visualiza y crea reportes personalizados.</p> *@
+@*         </div> *@
+@*         <a href="@Url.Action("VerReportes", "Reportes")" class="btn btn-lg btn-outline-info w-100 mb-2">Ver Reportes</a> *@
+@*         <a href="@Url.Action("CrearReporte", "Reportes")" class="btn btn-lg btn-info w-100">Crear Reporte</a> *@
+@*       </div> *@
+@*     </div> *@
+@*   </div> *@
+@* </div> *@

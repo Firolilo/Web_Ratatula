@@ -1,0 +1,41 @@
+@{
+  ViewData["Title"] = "Crear Producto";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="Nombre" class="form-label">Nombre del Producto</label>
+    <input type="text" class="form-control" id="Nombre" name="Nombre" required />
+  </div>
+  <div class="mb-3">
+    <label for="Descripcion" class="form-label">Descripción</label>
+    <textarea class="form-control" id="Descripcion" name="Descripcion" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="Precio" class="form-label">Precio</label>
+    <input type="number" class="form-control" id="Precio" name="Precio" required step="0.01" />
+  </div>
+  <div class="mb-3">
+    <label for="Stock" class="form-label">Stock</label>
+    <input type="number" class="form-control" id="Stock" name="Stock" required />
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Crear Producto</button>
+</form>
+
+@if (TempData["SuccessMessage"] != null)
+{
+  <div class="alert alert-success mt-3">
+    @TempData["SuccessMessage"]
+  </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+  <div class="alert alert-danger mt-3">
+    @TempData["ErrorMessage"]
+  </div>
+}

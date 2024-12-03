@@ -1,0 +1,52 @@
+@model IEnumerable<AspnetCoreMvcFull.Models.ViewModels.PedidoViewModel>
+
+@{
+  ViewData["Title"] = "Pedidos Pendientes";
+}
+
+<h1>Pedidos Pendientes</h1>
+
+@if (ViewBag.Mensaje != null)
+{
+  <div class="alert alert-info">
+    @ViewBag.Mensaje
+  </div>
+}
+
+<table class="table table-striped mt-3">
+  <thead>
+  <tr>
+    <th>ID Pedido</th>
+    <th>Cliente</th>
+    <th>Productos</th>
+    <th>Promociones</th>
+    <th>Total</th>
+    <th>Fecha de Creación</th>
+    <th>Estado de Venta</th>
+  </tr>
+  </thead>
+  <tbody>
+  @foreach (var pedido in Model)
+  {
+    <tr>
+      <td>@pedido.Id</td>
+      <td>@pedido.IdCliente</td>
+      <td>
+        @foreach (var producto in pedido.Productos)
+        {
+          <div>@producto.IdProducto - Cantidad: @producto.Cantidad</div>
+        }
+      </td>
+      <td>
+        @foreach (var promocion in pedido.Promociones)
+        {
+          <div>@promocion.IdPromo - Cantidad: @promocion.Cantidad</div>
+        }
+      </td>
+      <td>@pedido.Total.ToString("C")</td>
+      <td>@pedido.FechaCreacion</td>
+      <td>@pedido.EstadoVenta</td>
+    </tr>
+  }
+  </tbody>
+</table>
